@@ -1,10 +1,11 @@
-package com.example.springboot.service;
+package com.example.springboot.dao;
 
 import com.example.springboot.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserDAO {
     public User findById(Long id);
     public List<User> findAll();
     public void saveUser(User user);

@@ -1,7 +1,7 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.model.User;
-import com.example.springboot.service.UserService;
+import com.example.springboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +14,9 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
@@ -53,7 +53,7 @@ public class UserController {
 
     @PostMapping("/user-update")
     public String updateUser(User user) {
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "redirect:/users";
     }
 }
