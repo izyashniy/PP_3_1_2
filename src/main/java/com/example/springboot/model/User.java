@@ -29,7 +29,9 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
-    public User() {}
+    public User() {
+
+    }
 
     public User(Long id, String name, String lastName, int age, String username, String password) {
         this.id = id;
