@@ -2,13 +2,14 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Title</title>
 </head>
 <body>
+
 <div th:switch="${users}">
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">
-        <h2>Users</h2>
+        <h2>User</h2>
         <table>
             <thead>
             <tr>
@@ -16,6 +17,8 @@
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Age</th>
+                <th>Username</th>
+                <th>Password</th>
             </tr>
             </thead>
             <tbody>
@@ -24,18 +27,15 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.age}"></td>
-                <td><button><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></button></td>
-                <td><button><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></button></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.password}"></td>
             </tr>
             </tbody>
         </table>
-        <br/>
-
     </div>
-    <button onclick="document.location='/user-create'">Create User</button>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="LOGOUT"></input>
-    </form>
 </div>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="LOGOUT"></input>
+</form>
 </body>
 </html>
