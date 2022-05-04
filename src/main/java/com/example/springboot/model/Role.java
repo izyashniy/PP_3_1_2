@@ -1,5 +1,6 @@
 package com.example.springboot.model;
 
+
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
